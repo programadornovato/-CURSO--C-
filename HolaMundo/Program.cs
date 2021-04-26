@@ -9,23 +9,15 @@ namespace HolaMundo
 {
     class Program
     {
+        const double PI = 3.1416;
+        const int semenas = 52, meses = 12;
+        const string pagina = "programadornovato.com";
         static void Main(string[] args)
         {
-            /*
-            bool a = false;
-            bool b = false;
-            bool res = a || b;
-            Console.WriteLine(res);
-            */
-            /*
-            bool a = true;
-            bool b = false;
-            bool res = a && b;
-            Console.WriteLine(res);
-            */
-            bool a = false;
-            bool res = !a;
-            Console.WriteLine(res);
+            double doblePI = PI * 2;
+            Console.WriteLine("El valor de PI="+PI);
+            Console.WriteLine("El valor de 2xPI="+ doblePI);
+            Console.WriteLine("Mi pagina es:"+ pagina);
 
             Console.Read();
         }
