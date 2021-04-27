@@ -11,13 +11,20 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            edad(1980);
+            //int años=edad(1980);
+            Console.WriteLine("Edad es "+ edad(1980));
+            Console.WriteLine("El año de nacimiento es "+ añoNacimiento(20));
             Console.Read();
         }
-        public static void edad(int añoNacimiento) {
+        public static int edad(int añoNacimiento) {
             int añosActual = DateTime.Now.Year;
-            int edad = añosActual - añoNacimiento;
-            Console.WriteLine("Edad es " + edad);
+            //int edad = añosActual - añoNacimiento;
+            return añosActual - añoNacimiento;
+        }
+        public static int añoNacimiento(int edad) {
+            int añoActual = DateTime.Now.Year;
+            //int añoNacimiento = añoActual - edad;
+            return añoActual - edad;
         }
     }
 }
