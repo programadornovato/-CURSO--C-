@@ -11,24 +11,17 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int num1 = 5;
-            int num2 = 3;
-            int suma = num1 + num2;
-            Console.WriteLine("Suma="+suma);
-
-            int resta = num1 - num2;
-            Console.WriteLine("Resta=" + resta);
-
-            double divicion = Convert.ToDouble(num1) / Convert.ToDouble(num2);
-            Console.WriteLine("Divicion=" + divicion);
-
-            int multiplicacion = num1 * num2;
-            Console.WriteLine("Multiplicacion=" + multiplicacion);
-
-            double residuo = num1 % num2;
-            Console.WriteLine("Residuo=" + residuo);
-
+            saluda();
+            despide("Adios desde el parametro que recibe el metodo");
             Console.Read();
+        }
+        static public void saluda() 
+        {
+            Console.WriteLine("Hola desde el metodo");
+        }
+        static public void despide(string texto) 
+        {
+            Console.WriteLine(texto);
         }
     }
 }
