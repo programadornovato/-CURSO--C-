@@ -12,16 +12,16 @@ namespace HolaMundo
         static void Main(string[] args)
         {
             saluda();
-            despide("Adios desde el parametro que recibe el metodo");
+            string nombre = "Juan", apellido = "Peres";
+            string nombreCompleto = nombre +" "+ apellido;
+            Console.WriteLine(nombreCompleto);
+            apellido = "Perez";
+            nombreCompleto = nombre + " " + apellido;
+            Console.WriteLine(nombreCompleto);
             Console.Read();
         }
-        static public void saluda() 
-        {
-            Console.WriteLine("Hola desde el metodo");
-        }
-        static public void despide(string texto) 
-        {
-            Console.WriteLine(texto);
+        static public void saluda() {
+            Console.WriteLine("Hola");
         }
     }
 }
