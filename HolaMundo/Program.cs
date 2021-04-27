@@ -9,15 +9,24 @@ namespace HolaMundo
 {
     class Program
     {
-        const double PI = 3.1416;
-        const int semenas = 52, meses = 12;
-        const string pagina = "programadornovato.com";
         static void Main(string[] args)
         {
-            double doblePI = PI * 2;
-            Console.WriteLine("El valor de PI="+PI);
-            Console.WriteLine("El valor de 2xPI="+ doblePI);
-            Console.WriteLine("Mi pagina es:"+ pagina);
+            int num1 = 5;
+            int num2 = 3;
+            int suma = num1 + num2;
+            Console.WriteLine("Suma="+suma);
+
+            int resta = num1 - num2;
+            Console.WriteLine("Resta=" + resta);
+
+            double divicion = Convert.ToDouble(num1) / Convert.ToDouble(num2);
+            Console.WriteLine("Divicion=" + divicion);
+
+            int multiplicacion = num1 * num2;
+            Console.WriteLine("Multiplicacion=" + multiplicacion);
+
+            double residuo = num1 % num2;
+            Console.WriteLine("Residuo=" + residuo);
 
             Console.Read();
         }
