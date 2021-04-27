@@ -11,17 +11,13 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            saluda();
-            string nombre = "Juan", apellido = "Peres";
-            string nombreCompleto = nombre +" "+ apellido;
-            Console.WriteLine(nombreCompleto);
-            apellido = "Perez";
-            nombreCompleto = nombre + " " + apellido;
-            Console.WriteLine(nombreCompleto);
+            edad(1980);
             Console.Read();
         }
-        static public void saluda() {
-            Console.WriteLine("Hola");
+        public static void edad(int añoNacimiento) {
+            int añosActual = DateTime.Now.Year;
+            int edad = añosActual - añoNacimiento;
+            Console.WriteLine("Edad es " + edad);
         }
     }
 }
