@@ -11,19 +11,14 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Math.PI=" + Math.PI);
-            Console.WriteLine("Math.E=" + Math.E);
-            Console.WriteLine("Math.Min(5.5,3.5)=" + Math.Min(5.5,3.5));
-            Console.WriteLine("Math.Max(5.5,3.5)=" + Math.Max(5.5,3.5));
-            Console.WriteLine("Math.Round(-5.5)=" + Math.Round(-5.5));
-            Console.WriteLine("Math.Ceiling(-5.5)=" + Math.Ceiling(-5.5));
-            Console.WriteLine("Math.Floor(5.5)=" + Math.Floor(5.5));
-            Console.WriteLine("Math.Truncate(-5.5)=" + Math.Truncate(-5.5));
-            Console.WriteLine("Math.Abs(5.5)=" + Math.Abs(5.5));
-            Console.WriteLine("Math.Sign(5.5)=" + Math.Sign(5.5));
-            Console.WriteLine("Math.Pow(5,3)=" + Math.Pow(5,3));
-            Console.WriteLine("Math.Sqrt(9)=" + Math.Sqrt(9));
-
+            Console.WriteLine("¿Humano como te llamas?");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("¿"+ nombre +" en que año naciste?");
+            int añoNacimiento = int.Parse(Console.ReadLine());
+            int edad = DateTime.Now.Year - añoNacimiento;
+            Console.WriteLine("¿" + nombre + " de pura casualidad cunto ganas al mes?");
+            float salario = float.Parse(Console.ReadLine());
+            Console.WriteLine("Pobre "+nombre+" a tus "+edad+" años y solo ganas "+salario+ " pesitos ");
             Console.Read();
         }
     }
