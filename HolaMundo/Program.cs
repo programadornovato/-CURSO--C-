@@ -11,25 +11,34 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Humano ingresa un NUMERO entre 0 y 10:");
-            double calificacion = double.Parse(Console.ReadLine());
-            int calRedondeada = Convert.ToInt32(Math.Round(calificacion));
-            if ((calRedondeada >= 0) && (calRedondeada < 6))
-            {
-                Console.WriteLine("El alumno se chingo");
+            Console.WriteLine("Humano por favor ingresa un NUMERO entre 1 y 7:");
+            int dia = Convert.ToInt32(Console.ReadLine());
+            switch (dia) {
+                case 1:
+                    Console.WriteLine("Seleccionaste el dia lunes");
+                    break;
+                case 2:
+                    Console.WriteLine("Seleccionaste el dia martes");
+                    break;
+                case 3:
+                    Console.WriteLine("Seleccionaste el dia miercoles");
+                    break;
+                case 4:
+                    Console.WriteLine("Seleccionaste el dia jueves");
+                    break;
+                case 5:
+                    Console.WriteLine("Seleccionaste el dia viernes");
+                    break;
+                case 6:
+                    Console.WriteLine("Seleccionaste el dia sabado");
+                    break;
+                case 7:
+                    Console.WriteLine("Seleccionaste el dia domingo");
+                    break;
+                default:
+                    Console.WriteLine("Humano estupido te pedi un NUMERO entre 1 y 7");
+                    break;
             }
-            else if ((calRedondeada >= 6) && (calRedondeada <= 9))
-            {
-                Console.WriteLine("El alumno ya chingo");
-            }
-            else if (calRedondeada == 10)
-            {
-                Console.WriteLine("El alumno es una v3rg4");
-            }
-            else {
-                Console.WriteLine("Humano estupido te pedi un numero entre 0 y 10");
-            }
-
             Console.Read();
         }
     }
