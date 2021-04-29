@@ -11,20 +11,33 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Console.WriteLine("Humano por favor ingresa un piche NUMERO:");
-                string numString = Console.ReadLine();
-                int num = int.Parse(numString);
-                int cuadrado = num * num;
-                Console.WriteLine("Tu numero " + num + " al cuadrado es:" + cuadrado);
+            try { 
+                Console.WriteLine("Humano con cuantos litro de cerveza te emborrachas:");
+                double litrosBorracho= double.Parse(Console.ReadLine());
+                double mililitrosBorracho = litrosBorracho * 1000;
+                Console.WriteLine("Humano cual es el diametro de tu vaso:");
+                double diametro = double.Parse(Console.ReadLine());
+                Console.WriteLine("Humano cual es la altura de tu vaso:");
+                double altura = double.Parse(Console.ReadLine());
+
+                double radio = diametro / 2;
+
+                double volumen = Math.PI * radio * 2 * altura;
+                double limiteVasos = mililitrosBorracho / volumen;
+                //Console.WriteLine("limiteVasos="+ limiteVasos);
+                Console.WriteLine("¿Humano cuantos vasos de cerveza has tomado?:");
+                double vasosTomados = double.Parse(Console.ReadLine());
+                if (vasosTomados >= limiteVasos)
+                {
+                    Console.WriteLine("Humano ya excediste la cantidad de vazos para estar borracho (osea ya esta pedo)");
+                }
+                else {
+                    Console.WriteLine("Humano te hacen falta "+(limiteVasos-vasosTomados)+" vasos para estar borracho");
+                }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                Console.WriteLine("Humano estupido te pedi un  N U M E R O");
-            }
-            finally {
-                Console.WriteLine("Este codigo se ejecuta si o si");
+                Console.WriteLine("Humano ya estas hasta las manitas ya ni puedes escribir un numero, y yo con borrachos no hablo adios");
             }
             Console.Read();
         }
