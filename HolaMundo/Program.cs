@@ -11,34 +11,52 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            try { 
-                Console.WriteLine("Humano con cuantos litro de cerveza te emborrachas:");
-                double litrosBorracho= double.Parse(Console.ReadLine());
-                double mililitrosBorracho = litrosBorracho * 1000;
-                Console.WriteLine("Humano cual es el diametro de tu vaso:");
-                double diametro = double.Parse(Console.ReadLine());
-                Console.WriteLine("Humano cual es la altura de tu vaso:");
-                double altura = double.Parse(Console.ReadLine());
-
-                double radio = diametro / 2;
-
-                double volumen = Math.PI * radio * 2 * altura;
-                double limiteVasos = mililitrosBorracho / volumen;
-                //Console.WriteLine("limiteVasos="+ limiteVasos);
-                Console.WriteLine("¿Humano cuantos vasos de cerveza has tomado?:");
-                double vasosTomados = double.Parse(Console.ReadLine());
-                if (vasosTomados >= limiteVasos)
-                {
-                    Console.WriteLine("Humano ya excediste la cantidad de vazos para estar borracho (osea ya esta pedo)");
-                }
-                else {
-                    Console.WriteLine("Humano te hacen falta "+(limiteVasos-vasosTomados)+" vasos para estar borracho");
-                }
-            }
-            catch(Exception e)
+            try
             {
-                Console.WriteLine("Humano ya estas hasta las manitas ya ni puedes escribir un numero, y yo con borrachos no hablo adios");
+                Console.WriteLine("Hola humano, bienvenido a tu pn");
+                Console.WriteLine("Ingresa el numero de la opcion que quieres elegir:");
+                Console.WriteLine("1.- Ver saldo");
+                Console.WriteLine("2.- Ingresar dinero");
+                Console.WriteLine("3.- Sacar dinero");
+                Console.WriteLine("4.- Salir");
+                int opcion = int.Parse(Console.ReadLine());
+                double saldo = 100;
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Tu saldo es de $" + saldo);
+                        break;
+                    case 2:
+                        Console.WriteLine("Humano cuanto dinero quieres ingresar:");
+                        double dineroIngresar = double.Parse(Console.ReadLine());
+                        saldo = saldo + dineroIngresar;
+                        Console.WriteLine("Haz ingresado $" + dineroIngresar + " y tu saldo es de $" + saldo);
+                        break;
+                    case 3:
+                        Console.WriteLine("Humano cuanto dinero quieres retirar:");
+                        double dineroRetirar = double.Parse(Console.ReadLine());
+                        if (dineroRetirar > saldo)
+                        {
+                            Console.WriteLine("Humano pillin como que querias retirar mas dinero de lo que tienes tu saldo es de $" + saldo);
+                        }
+                        else
+                        {
+                            saldo = saldo - dineroRetirar;
+                            Console.WriteLine("Haz retirado $" + dineroRetirar + " y tu saldo es de $" + saldo);
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Adio humano gracias por usar el pn");
+                        break;
+                    default:
+                        Console.WriteLine("Humano estupido " + opcion + " no es una opcion valida");
+                        break;
+                }
             }
+            catch (Exception e) {
+                Console.WriteLine("Humano estupido haz ingresa un valor no valido "+e);
+            }
+
             Console.Read();
         }
     }
