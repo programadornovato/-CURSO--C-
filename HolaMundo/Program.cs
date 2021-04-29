@@ -11,33 +11,20 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Humano por favor ingresa un NUMERO entre 1 y 7:");
-            int dia = Convert.ToInt32(Console.ReadLine());
-            switch (dia) {
-                case 1:
-                    Console.WriteLine("Seleccionaste el dia lunes");
-                    break;
-                case 2:
-                    Console.WriteLine("Seleccionaste el dia martes");
-                    break;
-                case 3:
-                    Console.WriteLine("Seleccionaste el dia miercoles");
-                    break;
-                case 4:
-                    Console.WriteLine("Seleccionaste el dia jueves");
-                    break;
-                case 5:
-                    Console.WriteLine("Seleccionaste el dia viernes");
-                    break;
-                case 6:
-                    Console.WriteLine("Seleccionaste el dia sabado");
-                    break;
-                case 7:
-                    Console.WriteLine("Seleccionaste el dia domingo");
-                    break;
-                default:
-                    Console.WriteLine("Humano estupido te pedi un NUMERO entre 1 y 7");
-                    break;
+            try
+            {
+                Console.WriteLine("Humano por favor ingresa un piche NUMERO:");
+                string numString = Console.ReadLine();
+                int num = int.Parse(numString);
+                int cuadrado = num * num;
+                Console.WriteLine("Tu numero " + num + " al cuadrado es:" + cuadrado);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Humano estupido te pedi un  N U M E R O");
+            }
+            finally {
+                Console.WriteLine("Este codigo se ejecuta si o si");
             }
             Console.Read();
         }
