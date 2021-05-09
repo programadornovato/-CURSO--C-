@@ -11,32 +11,25 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Humano ingresa tu fecha de nacimiento en formato dd/MM/yyyy");
+            string fechaNacString = Console.ReadLine();
+            DateTime fechaNacDate = DateTime.Now;
             try
             {
-                Console.WriteLine("Bienvenido a su tienda PN");
-                Console.WriteLine("Ingresa el valor del producto 1:");
-                double p1 = double.Parse(Console.ReadLine());
-                Console.WriteLine("Ingresa el valor del producto 2:");
-                double p2 = double.Parse(Console.ReadLine());
-                Console.WriteLine("Ingresa el valor del producto 3:");
-                double p3 = double.Parse(Console.ReadLine());
-                double suma = p1 + p2 + p3;
-                Console.WriteLine("Humano deseas redondear tus centavos S/N");
-                string respuesta = Console.ReadLine();
-                if ((respuesta == "S") || (respuesta == "s"))
-                {
-                    double sumaRedondeada = Math.Ceiling(suma);
-                    double redendeo = sumaRedondeada - suma;
-                    Console.WriteLine("Gracias humano por haber redondeado " + String.Format("{0:C}", redendeo));
-                }
-                else
-                {
-                    Console.WriteLine("Pinche humano miserable");
-                }
+                fechaNacDate = DateTime.ParseExact(fechaNacString, "dd/MM/yyyy", null);
             }
             catch (Exception e) {
-                Console.WriteLine("Pinche cajero tonto escribiste algo mal "+ e);
+                Console.WriteLine("Humano estupido escribe bien la fecha en formato dd/MM/yyyy "+e);
             }
+            DateTime fechaActual = DateTime.Now;
+            /*
+            int años = fechaActual.Year - fechaNacDate.Year;
+            Console.WriteLine("Humano tu tienes "+años+" años");
+            */
+            TimeSpan diferecia = fechaActual - fechaNacDate;
+            double dias = diferecia.TotalDays;
+            double años = Math.Floor(dias / 365);
+            Console.WriteLine("Humano tu tienes " + años + " años");
             Console.Read();
         }
     }
