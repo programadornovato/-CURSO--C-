@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 /*
 Autor: Programador novato
 Fecha: 01/01/2021
@@ -11,26 +12,20 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Humano ingresa tu fecha de nacimiento en formato dd/MM/yyyy");
-            string fechaNacString = Console.ReadLine();
-            DateTime fechaNacDate = DateTime.Now;
-            try
-            {
-                fechaNacDate = DateTime.ParseExact(fechaNacString, "dd/MM/yyyy", null);
-            }
-            catch (Exception e) {
-                Console.WriteLine("Humano estupido escribe bien la fecha en formato dd/MM/yyyy "+e);
-            }
-            DateTime fechaActual = DateTime.Now;
             /*
-            int años = fechaActual.Year - fechaNacDate.Year;
-            Console.WriteLine("Humano tu tienes "+años+" años");
+            string texto= Microsoft.VisualBasic.Interaction.InputBox("Ingresa un texto", "Titulo", "Respuesta por default");
+            MessageBox.Show("Humano aqui esta tu pinche texto=" + texto);
+
+            int entero= int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Ingresa un numero", "Titulo"));
+            MessageBox.Show("Humano aqui esta tu pinche entero=" + entero);
+
+            float flotante = float.Parse(Microsoft.VisualBasic.Interaction.InputBox("Ingresa un numero flotante", "Titulo"));
+            flotante++;
+            MessageBox.Show("Humano aqui esta tu pinche flotante=" + flotante);
             */
-            TimeSpan diferecia = fechaActual - fechaNacDate;
-            double dias = diferecia.TotalDays;
-            double años = Math.Floor(dias / 365);
-            Console.WriteLine("Humano tu tienes " + años + " años");
-            Console.Read();
+            char caracter = Microsoft.VisualBasic.Interaction.InputBox("Ingresa un texto", "Titulo")[3];
+            MessageBox.Show("Humano aqui esta tu cuarto caracter=" + caracter);
+            //Console.Read();
         }
     }
 }
