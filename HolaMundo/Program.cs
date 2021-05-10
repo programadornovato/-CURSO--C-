@@ -13,19 +13,34 @@ namespace HolaMundo
         static void Main(string[] args)
         {
             /*
-            string texto= Microsoft.VisualBasic.Interaction.InputBox("Ingresa un texto", "Titulo", "Respuesta por default");
-            MessageBox.Show("Humano aqui esta tu pinche texto=" + texto);
-
-            int entero= int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Ingresa un numero", "Titulo"));
-            MessageBox.Show("Humano aqui esta tu pinche entero=" + entero);
-
-            float flotante = float.Parse(Microsoft.VisualBasic.Interaction.InputBox("Ingresa un numero flotante", "Titulo"));
-            flotante++;
-            MessageBox.Show("Humano aqui esta tu pinche flotante=" + flotante);
+            Console.WriteLine("Humano escribe una opcion\nacceso\nconfiguracion\nayuda");
+            string seleccion = Console.ReadLine();
+            seleccion = seleccion.ToLower();
+            switch (seleccion) {
+                case "acceso":
+                    Console.WriteLine("Humano seleccionaste acceso");
+                    break;
+                case "configuracion":
+                    Console.WriteLine("Humano seleccionaste configuracion");
+                    break;
+                case "ayuda":
+                    Console.WriteLine("Humano seleccionaste ayuda");
+                    break;
+                default:
+                    Console.WriteLine("Humano estupido no escribiste ninguna opcion");
+                    break;
+            }
             */
-            char caracter = Microsoft.VisualBasic.Interaction.InputBox("Ingresa un texto", "Titulo")[3];
-            MessageBox.Show("Humano aqui esta tu cuarto caracter=" + caracter);
-            //Console.Read();
+            Console.WriteLine("Humano escribe hola");
+            string saludo = Console.ReadLine().ToLower();
+            if (saludo == "hola")
+            {
+                Console.WriteLine("Hola humano como estas");
+            }
+            else {
+                Console.WriteLine("Mi no entender");
+            }
+            Console.Read();
         }
     }
 }
