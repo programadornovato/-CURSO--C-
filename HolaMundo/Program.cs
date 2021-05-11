@@ -12,35 +12,30 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            /*
-            Console.WriteLine("Humano escribe una opcion\nacceso\nconfiguracion\nayuda");
-            string seleccion = Console.ReadLine();
-            seleccion = seleccion.ToLower();
-            switch (seleccion) {
-                case "acceso":
-                    Console.WriteLine("Humano seleccionaste acceso");
-                    break;
-                case "configuracion":
-                    Console.WriteLine("Humano seleccionaste configuracion");
-                    break;
-                case "ayuda":
-                    Console.WriteLine("Humano seleccionaste ayuda");
-                    break;
-                default:
-                    Console.WriteLine("Humano estupido no escribiste ninguna opcion");
-                    break;
-            }
-            */
-            Console.WriteLine("Humano escribe hola");
-            string saludo = Console.ReadLine().ToLower();
-            if (saludo == "hola")
+            bool entro = false;
+            int numero= int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Humano ingresa un numero entre 1 y 999:"));
+            if (numero >= 0 && numero <= 9)
             {
-                Console.WriteLine("Hola humano como estas");
+                MessageBox.Show("El numero " + numero + " es de tipo unidad");
+                entro = true;
             }
             else {
-                Console.WriteLine("Mi no entender");
+                if (numero >= 10 && numero <= 99)
+                {
+                    MessageBox.Show("El numero " + numero + " es de tipo decena");
+                    entro = true;
+                }
+                else {
+                    if (numero >= 100 && numero <= 999) {
+                        MessageBox.Show("El numero " + numero + " es de tipo centena");
+                        entro = true;
+                    }
+                }
             }
-            Console.Read();
+            if (entro == false) {
+                MessageBox.Show("Humano estupido te pedi un numero entre 0 y 999");
+            }
+            //Console.Read();
         }
     }
 }
