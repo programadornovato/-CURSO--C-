@@ -12,30 +12,34 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            bool entro = false;
-            int numero= int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Humano ingresa un numero entre 1 y 999:"));
-            if (numero >= 0 && numero <= 9)
+            Random rand = new Random();
+            int d1 = rand.Next(1,7);
+            int d2 = rand.Next(1,7);
+            int d3 = rand.Next(1,7);
+            Console.WriteLine("Dado 1="+d1);
+            Console.WriteLine("Dado 2="+d2);
+            Console.WriteLine("Dado 3="+d3);
+            if (d1 == 6 && d2 == 6 & d3 == 6)
             {
-                MessageBox.Show("El numero " + numero + " es de tipo unidad");
-                entro = true;
+                Console.WriteLine("Excelente");
             }
             else {
-                if (numero >= 10 && numero <= 99)
+                if ((d1 == 6 && d2 == 6) || (d1 == 6 && d3 == 6) || (d2 == 6 && d3 == 6))
                 {
-                    MessageBox.Show("El numero " + numero + " es de tipo decena");
-                    entro = true;
+                    Console.WriteLine("Muy bien");
                 }
                 else {
-                    if (numero >= 100 && numero <= 999) {
-                        MessageBox.Show("El numero " + numero + " es de tipo centena");
-                        entro = true;
+                    if (d1 == 6 || d2 == 6 || d3 == 6)
+                    {
+                        Console.WriteLine("Bien");
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Pesimo");
                     }
                 }
             }
-            if (entro == false) {
-                MessageBox.Show("Humano estupido te pedi un numero entre 0 y 999");
-            }
-            //Console.Read();
+            Console.Read();
         }
     }
 }
