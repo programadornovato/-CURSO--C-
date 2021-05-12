@@ -13,27 +13,56 @@ namespace HolaMundo
         static void Main(string[] args)
         {
             /*
-            int i = 1;
-            do
-            {
-                Console.WriteLine("i="+i);
-                i++;
-            } while (i <= 10);
+            Console.WriteLine("Hola humano selecciona una de estas tres opciones:");
+            Console.WriteLine("1.- Acceso");
+            Console.WriteLine("2.- Configuracion");
+            Console.WriteLine("3.- Salir");
+            int opcion = int.Parse(Console.ReadLine());
+            while (opcion != 3) {
+                switch (opcion) {
+                    case 1:
+                        Console.WriteLine("Seleccionaste acceso");
+                        break;
+                    case 2:
+                        Console.WriteLine("Seleccionaste Configuracion");
+                        break;
+                    case 3:
+                        Console.WriteLine("Seleccionaste Salir, adios humano");
+                        break;
+                    default:
+                        Console.WriteLine("Humano estupido te pedi que escribieras o 1 o 2 o 3");
+                        break;
+                }
+                Console.WriteLine("Hola humano selecciona una de estas tres opciones:");
+                Console.WriteLine("1.- Acceso");
+                Console.WriteLine("2.- Configuracion");
+                Console.WriteLine("3.- Salir");
+                opcion = int.Parse(Console.ReadLine());
+            }
             */
-            /*
-            int i = -10;
+            int opcion = 0;
             do {
-                Console.WriteLine("i=" + i);
-                i--;
-            } while (i>=1);
-            */
-            Random rdn = new Random();
-            int aleatorio = rdn.Next(1,7);
-            int i = 1;
-            do {
-                Console.WriteLine("i=" + i+" aleatorio="+aleatorio);
-                i++;
-            } while (i<=aleatorio);
+                Console.WriteLine("Hola humano selecciona una de estas tres opciones:");
+                Console.WriteLine("1.- Acceso");
+                Console.WriteLine("2.- Configuracion");
+                Console.WriteLine("3.- Salir");
+                opcion = int.Parse(Console.ReadLine());
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Seleccionaste acceso");
+                        break;
+                    case 2:
+                        Console.WriteLine("Seleccionaste Configuracion");
+                        break;
+                    case 3:
+                        Console.WriteLine("Seleccionaste Salir, adios humano");
+                        break;
+                    default:
+                        Console.WriteLine("Humano estupido te pedi que escribieras o 1 o 2 o 3");
+                        break;
+                }
+            } while (opcion!=3);
             Console.Read();
         }
     }
