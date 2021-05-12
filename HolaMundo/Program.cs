@@ -14,24 +14,26 @@ namespace HolaMundo
         {
             /*
             int i = 1;
-            while (i <= 10) {
+            do
+            {
                 Console.WriteLine("i="+i);
-                i=i+2;
-            }
+                i++;
+            } while (i <= 10);
             */
             /*
-            int i = 10;
-            while (i >= 1) {
+            int i = -10;
+            do {
                 Console.WriteLine("i=" + i);
-                i=i-3;
-            }
+                i--;
+            } while (i>=1);
             */
-            int repeticiones = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Humano ingresa el numero de repeticiones"));
+            Random rdn = new Random();
+            int aleatorio = rdn.Next(1,7);
             int i = 1;
-            while (i <= repeticiones) {
-                Console.WriteLine("i=" + i);
+            do {
+                Console.WriteLine("i=" + i+" aleatorio="+aleatorio);
                 i++;
-            }
+            } while (i<=aleatorio);
             Console.Read();
         }
     }
