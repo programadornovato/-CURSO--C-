@@ -12,31 +12,13 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            /*
-            for (int i = 0; i < 10; i++) {
-                Console.WriteLine("i="+(i+1));
-            }
-            */
-            /*
-            for (int i = 0; i < 10; i=i+2) {
-                Console.WriteLine("i="+i);
-            }
-            
-            for (int i = 9; i >= 0; i--)
-            {
-                Console.WriteLine("i=" + (i + 1));
-            }
-            */
-            int repeticiones;
-            try {
-                repeticiones = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("humano ingresa un numero"));
-            }
-            catch (Exception e) {
-                Console.WriteLine("Humano estupido te pedi un inche numero");
-                repeticiones = 0;
-            }
-            for (int i = 0; i < repeticiones; i++) {
-                Console.WriteLine("i=" + (i + 1));
+            int altura = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("humano ingresa la cantidad de escales que va a tener tu escalera"));
+            for (int numEscalera=1; numEscalera<=altura; numEscalera++) {
+                for (int i = 1; i <= numEscalera; i++) {
+                    Console.Write("*");
+                }
+                Console.WriteLine("");
+
             }
             Console.Read();
         }
