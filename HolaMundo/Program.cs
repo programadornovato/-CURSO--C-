@@ -12,32 +12,25 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
-            int d1 = rand.Next(1,7);
-            int d2 = rand.Next(1,7);
-            int d3 = rand.Next(1,7);
-            Console.WriteLine("Dado 1="+d1);
-            Console.WriteLine("Dado 2="+d2);
-            Console.WriteLine("Dado 3="+d3);
-            if (d1 == 6 && d2 == 6 & d3 == 6)
-            {
-                Console.WriteLine("Excelente");
+            /*
+            int i = 1;
+            while (i <= 10) {
+                Console.WriteLine("i="+i);
+                i=i+2;
             }
-            else {
-                if ((d1 == 6 && d2 == 6) || (d1 == 6 && d3 == 6) || (d2 == 6 && d3 == 6))
-                {
-                    Console.WriteLine("Muy bien");
-                }
-                else {
-                    if (d1 == 6 || d2 == 6 || d3 == 6)
-                    {
-                        Console.WriteLine("Bien");
-                    }
-                    else 
-                    {
-                        Console.WriteLine("Pesimo");
-                    }
-                }
+            */
+            /*
+            int i = 10;
+            while (i >= 1) {
+                Console.WriteLine("i=" + i);
+                i=i-3;
+            }
+            */
+            int repeticiones = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Humano ingresa el numero de repeticiones"));
+            int i = 1;
+            while (i <= repeticiones) {
+                Console.WriteLine("i=" + i);
+                i++;
             }
             Console.Read();
         }
