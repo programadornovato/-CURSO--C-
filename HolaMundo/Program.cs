@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 /*
 Autor: Programador novato
 Fecha: 01/01/2021
@@ -12,18 +13,31 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            string[] perros=new string[] { "Monte","Chupacabras","Solovino","Chimuelo","El chiquito" };
-            Console.WriteLine("CICLO CON FOR");
-            for (int i = 0; i < perros.Length; i++) Console.WriteLine("El perro "+i+" es "+perros[i]);
-
-            Console.WriteLine("CICLO CON FOREACH");
-            int j = 0;
-            foreach (string perro in perros) {
-                Console.WriteLine("El perro "+j+" es "+perro);
-                j++;
+            string texto = Interaction.InputBox("Humano por favor ingresa un palindromo");
+            string textoTemp = texto;
+            //ana
+            if (texto != null) {
+                texto = texto.ToLower();
+                texto = texto.Replace(" ", "");
+                int longitud = texto.Length;
+                bool igual = true;
+                int cont = 0;
+                for (int ind=longitud-1;ind>=0;ind--) {
+                    if (texto[ind] != texto[cont]) {
+                        igual = false;
+                        break;
+                    }
+                    cont++;
+                }
+                if (igual == true)
+                {
+                    MessageBox.Show("Felicidades humano la frace " + textoTemp + " si es palindromo");
+                }
+                else {
+                    MessageBox.Show("Humano estupido la frace " + textoTemp + " no si es palindromo");
+                }
             }
-            
-            Console.Read();
+            //Console.Read();
         }
     }
 }
