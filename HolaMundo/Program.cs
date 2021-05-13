@@ -12,12 +12,17 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int[] arregloNumeros = new int[] {5,8,3,7,4,1 };
-            Console.WriteLine("El elemento numero 4="+ arregloNumeros[3]);
-            Console.WriteLine("Longitud del arreglos es "+arregloNumeros.Length);
-            for (int i= 0; i < arregloNumeros.Length; i++) {
-                Console.WriteLine("El valor del elemento "+(i+1)+" es "+arregloNumeros[i]);
+            string[] perros=new string[] { "Monte","Chupacabras","Solovino","Chimuelo","El chiquito" };
+            Console.WriteLine("CICLO CON FOR");
+            for (int i = 0; i < perros.Length; i++) Console.WriteLine("El perro "+i+" es "+perros[i]);
+
+            Console.WriteLine("CICLO CON FOREACH");
+            int j = 0;
+            foreach (string perro in perros) {
+                Console.WriteLine("El perro "+j+" es "+perro);
+                j++;
             }
+            
             Console.Read();
         }
     }
