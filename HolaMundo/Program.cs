@@ -12,13 +12,11 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int altura = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("humano ingresa la cantidad de escales que va a tener tu escalera"));
-            for (int numEscalera=1; numEscalera<=altura; numEscalera++) {
-                for (int i = 1; i <= numEscalera; i++) {
-                    Console.Write("*");
-                }
-                Console.WriteLine("");
-
+            int[] arregloNumeros = new int[] {5,8,3,7,4,1 };
+            Console.WriteLine("El elemento numero 4="+ arregloNumeros[3]);
+            Console.WriteLine("Longitud del arreglos es "+arregloNumeros.Length);
+            for (int i= 0; i < arregloNumeros.Length; i++) {
+                Console.WriteLine("El valor del elemento "+(i+1)+" es "+arregloNumeros[i]);
             }
             Console.Read();
         }
