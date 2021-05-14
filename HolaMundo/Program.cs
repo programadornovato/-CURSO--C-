@@ -13,22 +13,27 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Random rdn = new Random();
-            int aleatorio=rdn.Next(1,6);
-            int numero=int.Parse(Interaction.InputBox("Humano por favor ingresa un numero entre 1 y 5"));
-            while (aleatorio != numero) {
-                numero = int.Parse(Interaction.InputBox("Humano estupido no le atinaste el numero que estaba pensando era "+ aleatorio+" intenta de nuevo o ingresa 0 para salir"));
-                if (numero == 0) {
-                    break;
-                }
-                aleatorio = rdn.Next(1, 6);
-            }
-            if (numero == 0)
+            int contador = 0;
+            double calificacion = 0;
+            double suma = 0;
+            double promedio = 0;
+            string texto = "";
+            do
             {
-                MessageBox.Show("Ademas de ser estupido eres impasiente el numero que estaba pensando era " + aleatorio);
+                texto=Interaction.InputBox("Humano ingresa la calificacion del semestre "+(contador+1)+" o preciona cancelar para terminar");
+                if (texto != "") {
+                    calificacion = double.Parse(texto);
+                    suma = suma + calificacion;
+                    contador++;
+                }
+            } while (texto != "");
+            if (contador > 0)
+            {
+                promedio = suma / contador;
+                MessageBox.Show("El promedio del alumno es " + promedio);
             }
             else {
-                MessageBox.Show("Felicidades humano le atinaste al numero "+numero);
+                MessageBox.Show("A demas de ser estupido eres flojo no ingresaste ninguna calificacion");
             }
             //Console.Read();
         }
