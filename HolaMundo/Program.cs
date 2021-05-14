@@ -13,29 +13,22 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            string texto = Interaction.InputBox("Humano por favor ingresa un palindromo");
-            string textoTemp = texto;
-            //ana
-            if (texto != null) {
-                texto = texto.ToLower();
-                texto = texto.Replace(" ", "");
-                int longitud = texto.Length;
-                bool igual = true;
-                int cont = 0;
-                for (int ind=longitud-1;ind>=0;ind--) {
-                    if (texto[ind] != texto[cont]) {
-                        igual = false;
-                        break;
-                    }
-                    cont++;
+            Random rdn = new Random();
+            int aleatorio=rdn.Next(1,6);
+            int numero=int.Parse(Interaction.InputBox("Humano por favor ingresa un numero entre 1 y 5"));
+            while (aleatorio != numero) {
+                numero = int.Parse(Interaction.InputBox("Humano estupido no le atinaste el numero que estaba pensando era "+ aleatorio+" intenta de nuevo o ingresa 0 para salir"));
+                if (numero == 0) {
+                    break;
                 }
-                if (igual == true)
-                {
-                    MessageBox.Show("Felicidades humano la frace " + textoTemp + " si es palindromo");
-                }
-                else {
-                    MessageBox.Show("Humano estupido la frace " + textoTemp + " no si es palindromo");
-                }
+                aleatorio = rdn.Next(1, 6);
+            }
+            if (numero == 0)
+            {
+                MessageBox.Show("Ademas de ser estupido eres impasiente el numero que estaba pensando era " + aleatorio);
+            }
+            else {
+                MessageBox.Show("Felicidades humano le atinaste al numero "+numero);
             }
             //Console.Read();
         }
