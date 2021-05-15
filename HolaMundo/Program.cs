@@ -13,27 +13,26 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int[] a = new int[5];
-            int[] b = new int[5];
-            int[] c = new int[10];
-            int j = 0;
-            for (int i = 0; i < 5; i++) {
-                a[i]=int.Parse(Interaction.InputBox("Humano ingresa el elemento del arreglo a["+(i+1)+"] "));
+            int mayor = 0;
+            string texto = Interaction.InputBox("humano ingresa una lista de numeros separados por comas");
+            string[] listaNumerosString = texto.Split(',');
+            int cantidad = listaNumerosString.Length;
+            int[] numeros = new int[cantidad];
+            /*
+            foreach (string numero in listaNumerosString) {
+                Console.WriteLine(numero);
             }
-            for (int i = 0; i < 5; i++) {
-                b[i]=int.Parse(Interaction.InputBox("Humano ingresa el elemento del arreglo b["+(i+1)+"] "));
+            */
+            for (int i = 0; i < cantidad; i++) {
+                numeros[i] = int.Parse(listaNumerosString[i]);
             }
-            for (int i = 0; i < 5; i++) {
-                c[j] = a[i];
-                j++;
-                c[j] = b[i];
-                j++;
+            foreach (int num in numeros) {
+                if (num > mayor) {
+                    mayor = num;
+                }
             }
-            string arreglo = "";
-            foreach (int elemento in c) {
-                arreglo = arreglo +"\n"+ elemento;
-            }
-            MessageBox.Show(arreglo);
+            MessageBox.Show("El numero mayor es "+mayor);
+            
         }
     }
 }
