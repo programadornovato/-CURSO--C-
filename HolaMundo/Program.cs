@@ -13,24 +13,35 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("humano por favor ingresa un texto");
-            string texto = Console.ReadLine();
-            if (texto != "") {
-                int longitud = texto.Length;
-                char[] caracteres = new char[longitud];
-                int contador = 0;
-                for (int i = longitud - 1; i >= 0; i--) {
-                    caracteres[contador] = texto[i];
-                    contador++;
+            double[] calificaciones = new double[4];
+            int semestre = 0;
+            double suma = 0;
+            double promedio = 0;
+            do {
+                string calificacionString = Interaction.InputBox("humano ingresa la calificacion del semestre "+(semestre+1));
+                if (calificacionString == "")
+                {
+                    break;
                 }
-                /*
-                foreach (char caracter in caracteres) {
-                    Console.Write(caracter);
+                else {
+                    double calificacion = double.Parse(calificacionString);
+                    calificaciones[semestre] = calificacion;
+                    semestre++;
                 }
-                */
-                Console.WriteLine(caracteres);
+            } while (semestre<4);
+            if (semestre > 0)
+            {
+                foreach (double cal in calificaciones)
+                {
+                    suma += cal;
+                }
+                promedio = suma / semestre;
+                MessageBox.Show("La calificacion del alumno es:" + promedio);
             }
-            Console.Read();
+            else {
+                MessageBox.Show("humano olgasan te pedi que ingresara calificaciones" );
+            }
+
         }
     }
 }
