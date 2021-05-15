@@ -13,35 +13,27 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            double[] calificaciones = new double[4];
-            int semestre = 0;
-            double suma = 0;
-            double promedio = 0;
-            do {
-                string calificacionString = Interaction.InputBox("humano ingresa la calificacion del semestre "+(semestre+1));
-                if (calificacionString == "")
-                {
-                    break;
-                }
-                else {
-                    double calificacion = double.Parse(calificacionString);
-                    calificaciones[semestre] = calificacion;
-                    semestre++;
-                }
-            } while (semestre<4);
-            if (semestre > 0)
-            {
-                foreach (double cal in calificaciones)
-                {
-                    suma += cal;
-                }
-                promedio = suma / semestre;
-                MessageBox.Show("La calificacion del alumno es:" + promedio);
+            int[] a = new int[5];
+            int[] b = new int[5];
+            int[] c = new int[10];
+            int j = 0;
+            for (int i = 0; i < 5; i++) {
+                a[i]=int.Parse(Interaction.InputBox("Humano ingresa el elemento del arreglo a["+(i+1)+"] "));
             }
-            else {
-                MessageBox.Show("humano olgasan te pedi que ingresara calificaciones" );
+            for (int i = 0; i < 5; i++) {
+                b[i]=int.Parse(Interaction.InputBox("Humano ingresa el elemento del arreglo b["+(i+1)+"] "));
             }
-
+            for (int i = 0; i < 5; i++) {
+                c[j] = a[i];
+                j++;
+                c[j] = b[i];
+                j++;
+            }
+            string arreglo = "";
+            foreach (int elemento in c) {
+                arreglo = arreglo +"\n"+ elemento;
+            }
+            MessageBox.Show(arreglo);
         }
     }
 }
