@@ -13,47 +13,44 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            string texto = Interaction.InputBox("Humano por favor ingresa una lista de numeros separados por comas");
-            string[] listaNumerosTexto = texto.Split(',');
-            int cantidad = listaNumerosTexto.Length;
-            int[] listaNumeros = new int[cantidad];
-            for (int i = 0; i < cantidad; i++)
+            int[] listaNumeros = new int[5];
+            for (int i = 0; i < listaNumeros.Length; i++)
             {
-                listaNumeros[i] = int.Parse(listaNumerosTexto[i]);
+                Console.WriteLine("Humano ingresa el valor del elemento "+(i+1));
+                listaNumeros[i] = int.Parse(Console.ReadLine());
             }
+            int menor = 0;
+            int pos = 0;
             int tem = 0;
-            int cont = 0;
-            bool bandera = true;
-            for (int i = 0; i < cantidad-1; i++)
+            for (int i = 0; i < listaNumeros.Length-1; i++)
             {
-            
-                if (bandera == false) {
-                    break;
-                }
-                bandera = false;
-            
-                for (int j = 0; j < cantidad - 1; j++)
+                menor = listaNumeros[i];
+                pos = i;
+                for (int j = i+1; j < listaNumeros.Length; j++)
                 {
-                    if (listaNumeros[j] > listaNumeros[j + 1]) {
-                        bandera = true;
-                        tem = listaNumeros[j];
-                        listaNumeros[j] = listaNumeros[j + 1];
-                        listaNumeros[j + 1] = tem;
+                    if (listaNumeros[j] < menor) {
+                        menor = listaNumeros[j];
+                        pos = j;
                     }
-                    cont++;
+                }
+                if (pos!=i)
+                {
+                    tem = listaNumeros[i];
+                    listaNumeros[i] = listaNumeros[pos];
+                    listaNumeros[pos] = tem;
                 }
             }
-            Console.WriteLine("Se dieron "+cont+" vueltas");
-            Console.WriteLine("Humano aqui estan tus pinches numeros odenados de forma acendente");
-            for (int i = 0; i < cantidad; i++)
+            Console.WriteLine("Humano aqui esta tu pinche lista ordenada de forma acendente");
+            for (int i = 0; i < listaNumeros.Length; i++)
             {
                 Console.WriteLine(listaNumeros[i]);
             }
-            Console.WriteLine("Humano aqui estan tus pinches numeros odenados de forma decendente");
-            for (int i = cantidad-1; i >= 0; i--)
+            Console.WriteLine("Humano aqui esta tu pinche lista ordenada de forma decendente");
+            for (int i = listaNumeros.Length-1; i >= 0; i--)
             {
                 Console.WriteLine(listaNumeros[i]);
             }
+
             Console.Read();
         }
     }
