@@ -13,17 +13,37 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Humano por favor ingresa dos pinches numeros");
-            Console.WriteLine("Valor de a");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Valor de b");
-            int b = int.Parse(Console.ReadLine());
-            int tem = a;
-            a = b;
-            b = tem;
-            Console.WriteLine("El valor de a es "+a);
-            Console.WriteLine("El valor de b es "+b);
-            Console.ReadLine();
+            string texto = Interaction.InputBox("Humano por favor ingresa una lista de numeros separados por comas");
+            string[] listaNumerosTexto = texto.Split(',');
+            int cantidad = listaNumerosTexto.Length;
+            int[] listaNumeros = new int[cantidad];
+            for (int i = 0; i < cantidad; i++)
+            {
+                listaNumeros[i] = int.Parse(listaNumerosTexto[i]);
+            }
+            int tem = 0;
+            for (int i = 0; i < cantidad-1; i++)
+            {
+                for (int j = 0; j < cantidad - 1; j++)
+                {
+                    if (listaNumeros[j] > listaNumeros[j + 1]) {
+                        tem = listaNumeros[j];
+                        listaNumeros[j] = listaNumeros[j + 1];
+                        listaNumeros[j + 1] = tem;
+                    }
+                }
+            }
+            Console.WriteLine("Humano aqui estan tus pinches numeros odenados de forma acendente");
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.WriteLine(listaNumeros[i]);
+            }
+            Console.WriteLine("Humano aqui estan tus pinches numeros odenados de forma decendente");
+            for (int i = cantidad-1; i >= 0; i--)
+            {
+                Console.WriteLine(listaNumeros[i]);
+            }
+            Console.Read();
         }
     }
 }
