@@ -22,17 +22,28 @@ namespace HolaMundo
                 listaNumeros[i] = int.Parse(listaNumerosTexto[i]);
             }
             int tem = 0;
+            int cont = 0;
+            bool bandera = true;
             for (int i = 0; i < cantidad-1; i++)
             {
+            
+                if (bandera == false) {
+                    break;
+                }
+                bandera = false;
+            
                 for (int j = 0; j < cantidad - 1; j++)
                 {
                     if (listaNumeros[j] > listaNumeros[j + 1]) {
+                        bandera = true;
                         tem = listaNumeros[j];
                         listaNumeros[j] = listaNumeros[j + 1];
                         listaNumeros[j + 1] = tem;
                     }
+                    cont++;
                 }
             }
+            Console.WriteLine("Se dieron "+cont+" vueltas");
             Console.WriteLine("Humano aqui estan tus pinches numeros odenados de forma acendente");
             for (int i = 0; i < cantidad; i++)
             {
