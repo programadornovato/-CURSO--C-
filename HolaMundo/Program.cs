@@ -13,41 +13,37 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Humano ingresa el numero a buscar");
-            int numeroBuscar = int.Parse(Console.ReadLine());
-            int[] listaNumeros = new int[7];
-            for (int i = 0; i < 7; i++)
+            /*
+            int[,] matriz = new int[2, 3];
+            Console.WriteLine("Filas "+matriz.GetLength(0));
+            Console.WriteLine("Columnas "+matriz.GetLength(1));
+            */
+            Console.WriteLine("Humano ingresa la cantidad de filas de tu matriz");
+            int filas = int.Parse(Console.ReadLine());
+            Console.WriteLine("Humano ingresa la cantidad de columnas de tu matriz");
+            int columnas = int.Parse(Console.ReadLine());
+            int[,] matriz = new int[filas, columnas];
+            for (int i = 0; i < filas; i++)
             {
-                Console.WriteLine("Huamano ingresa el valor del elemento "+(i+1));
-                listaNumeros[i]=int.Parse(Console.ReadLine());
-            }
-            int n = listaNumeros.Length;
-            int inf = 0;
-            int centro = 0;
-            int sup = n - 1;
-            bool bandera = false;
-            while (inf <= sup) {
-                centro = (sup + inf) / 2;
-                if (listaNumeros[centro] == numeroBuscar)
+                for (int j = 0; j < columnas; j++)
                 {
-                    bandera = true;
-                    break;
-                }
-                else if (numeroBuscar < listaNumeros[centro])
-                {
-                    sup = centro - 1;
-                }
-                else {
-                    inf = centro + 1;
+                    Console.WriteLine("Matriz["+(i+1)+","+(j+1)+"]:");
+                    matriz[i, j] = int.Parse(Console.ReadLine());
                 }
             }
-            if (bandera == true)
+            Console.WriteLine("Humano aqui esta tu piche matriz");
+            for (int i = 0; i < filas; i++)
             {
-                Console.WriteLine("Felicidades humano el numero " + numeroBuscar + " estaba en la posicion " + (centro + 1));
+                for (int j = 0; j < columnas; j++)
+                {
+                    Console.Write(matriz[i,j]+",");
+                }
+                Console.WriteLine();
             }
-            else {
-                Console.WriteLine("Humano estupido el numero "+numeroBuscar+" no se encuentra en el arreglo");
-            }
+            int[,,] matriz3d = new int[1, 2, 3];
+            Console.WriteLine("x "+matriz3d.GetLength(0));
+            Console.WriteLine("y "+matriz3d.GetLength(1));
+            Console.WriteLine("z "+matriz3d.GetLength(2));
             Console.Read();
         }
     }
