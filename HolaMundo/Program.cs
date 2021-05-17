@@ -13,44 +13,31 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int[] listaNumeros = new int[5];
-            for (int i = 0; i < listaNumeros.Length; i++)
+            Console.WriteLine("Humano ingresa el numero a buscar de la lista");
+            int numeroBuscar=int.Parse(Console.ReadLine());
+            int[] listaNumeros = new int[7];
+            for (int i = 0; i < 7; i++)
             {
-                Console.WriteLine("Humano ingresa el valor del elemento "+(i+1));
-                listaNumeros[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Humano ingresa el elemento "+(i+1)+" de la lista");
+                int numero = int.Parse(Console.ReadLine());
+                listaNumeros[i] = numero;
             }
-            int menor = 0;
             int pos = 0;
-            int tem = 0;
-            for (int i = 0; i < listaNumeros.Length-1; i++)
-            {
-                menor = listaNumeros[i];
-                pos = i;
-                for (int j = i+1; j < listaNumeros.Length; j++)
-                {
-                    if (listaNumeros[j] < menor) {
-                        menor = listaNumeros[j];
-                        pos = j;
-                    }
+            bool bandera = false;
+            while (pos < 7 && bandera == false) {
+                if (numeroBuscar == listaNumeros[pos]) {
+                    bandera = true;
+                    break;
                 }
-                if (pos!=i)
-                {
-                    tem = listaNumeros[i];
-                    listaNumeros[i] = listaNumeros[pos];
-                    listaNumeros[pos] = tem;
-                }
+                pos++;
             }
-            Console.WriteLine("Humano aqui esta tu pinche lista ordenada de forma acendente");
-            for (int i = 0; i < listaNumeros.Length; i++)
+            if (bandera == true)
             {
-                Console.WriteLine(listaNumeros[i]);
+                Console.WriteLine("Felicidades humano se encontro el numero " + numeroBuscar + " en la posicion " + (pos+1));
             }
-            Console.WriteLine("Humano aqui esta tu pinche lista ordenada de forma decendente");
-            for (int i = listaNumeros.Length-1; i >= 0; i--)
-            {
-                Console.WriteLine(listaNumeros[i]);
+            else {
+                Console.WriteLine("Lo siento humano no se encontro el numero "+numeroBuscar);
             }
-
             Console.Read();
         }
     }
