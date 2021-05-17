@@ -13,37 +13,31 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            /*
-            int[,] matriz = new int[2, 3];
-            Console.WriteLine("Filas "+matriz.GetLength(0));
-            Console.WriteLine("Columnas "+matriz.GetLength(1));
-            */
-            Console.WriteLine("Humano ingresa la cantidad de filas de tu matriz");
-            int filas = int.Parse(Console.ReadLine());
-            Console.WriteLine("Humano ingresa la cantidad de columnas de tu matriz");
-            int columnas = int.Parse(Console.ReadLine());
-            int[,] matriz = new int[filas, columnas];
-            for (int i = 0; i < filas; i++)
+            string[,] alumnos = new string[7,2];
+            for (int i = 0; i < alumnos.GetLength(0); i++)
             {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.WriteLine("Matriz["+(i+1)+","+(j+1)+"]:");
-                    matriz[i, j] = int.Parse(Console.ReadLine());
-                }
+                Console.WriteLine("Humano ingresa el nombre del alumno "+(i+1));
+                alumnos[i,0]=Console.ReadLine();
+                Console.WriteLine("Humano ingresa el salon del alumno "+(i+1));
+                alumnos[i,1]=Console.ReadLine();
             }
-            Console.WriteLine("Humano aqui esta tu piche matriz");
-            for (int i = 0; i < filas; i++)
+            Console.WriteLine("Humano ingresa el salon de los alumnos que quieres ver ");
+            string salon = Console.ReadLine();
+            for (int i = 0; i < alumnos.GetLength(0); i++)
             {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.Write(matriz[i,j]+",");
+                if (alumnos[i, 1] == salon) {
+                    /*
+                    Console.Write(alumnos[i,0]);
+                    Console.Write(" | "+alumnos[i,1]);
+                    */
+                    for (int j = 0; j < alumnos.GetLength(1); j++)
+                    {
+                        Console.Write(alumnos[i,j]+" | ");
+                    }
+
                 }
                 Console.WriteLine();
             }
-            int[,,] matriz3d = new int[1, 2, 3];
-            Console.WriteLine("x "+matriz3d.GetLength(0));
-            Console.WriteLine("y "+matriz3d.GetLength(1));
-            Console.WriteLine("z "+matriz3d.GetLength(2));
             Console.Read();
         }
     }
