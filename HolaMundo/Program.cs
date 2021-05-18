@@ -13,41 +13,46 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int[,] matrizO = new int[3,3];
-            int[,] matrizT = new int[3,3];
-            for (int i = 0; i < 3; i++)
+            int fil = int.Parse(Interaction.InputBox("Humano ingresa la cantidad de filas de tu matriz"));
+            int col = int.Parse(Interaction.InputBox("Humano ingresa la cantidad de columnas de tu matriz"));
+            int[,] matriz = new int[fil, col];
+            for (int i = 0; i < fil; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < col; j++)
                 {
-                    matrizO[i, j] = int.Parse(Interaction.InputBox("Humano ingresa el elemento de la matrizO["+(i+1)+ "," + (j + 1) + "]"));
+                    matriz[i, j] = int.Parse(Interaction.InputBox("Matriz["+(i+1)+","+(j+1)+"]"));
                 }
             }
-            for (int i = 0; i < 3; i++)
+            bool esSimetrica = true;
+            if (fil == col)
             {
-                for (int j = 0; j < 3; j++)
+                for (int i = 0; i < fil; i++)
                 {
-                    matrizT[i, j] = matrizO[j, i];
+                    for (int j = 0; j < col; j++)
+                    {
+                        if (matriz[i, j] != matriz[j, i])
+                        {
+                            esSimetrica = false;
+                            break;
+                        }
+                    }
+                    if (esSimetrica == false)
+                    {
+                        break;
+                    }
+                }
+                if (esSimetrica == true)
+                {
+                    MessageBox.Show("Feliciades humano tu matriz si es simetrica");
+                }
+                else
+                {
+                    MessageBox.Show("humano estupido tu matriz no es simetrica");
                 }
             }
-            string resultado = "Matriz original\n";
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    resultado = resultado + matrizO[i, j] + " | ";
-                }
-                resultado = resultado + "\n";
+            else {
+                MessageBox.Show("Humano super estupido el umero de filas debe de ser igual al numero de columnas");
             }
-            resultado = resultado+"\n\nMatriz original\n";
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    resultado = resultado + matrizT[i, j] + " | ";
-                }
-                resultado = resultado + "\n";
-            }
-            MessageBox.Show(resultado);
         }
     }
 }
