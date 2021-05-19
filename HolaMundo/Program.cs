@@ -13,39 +13,54 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            int fil = int.Parse(Interaction.InputBox("Humano ingresa la cantidad de filas de tu matriz"));
-            int col = int.Parse(Interaction.InputBox("Humano ingresa la cantidad de columnas de tu matriz"));
-            int[,] matriz = new int[fil, col];
-            for (int i = 0; i < fil; i++)
+            int[,] matriz = new int[5, 5];
+            int dato = 1;
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                for (int j = 0; j < col; j++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    matriz[i, j] = int.Parse(Interaction.InputBox("Matriz["+(i+1)+","+(j+1)+"]"));
+                    matriz[i, j] = dato;
+                    dato++;
                 }
             }
-            int sumaFil = 0;
-            int sumaCol = 0;
-            string res = "";
-            for (int i = 0; i < fil; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                sumaFil = 0;
-                for (int j = 0; j < col; j++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    sumaFil = sumaFil + matriz[i, j];
+                    Console.Write(matriz[i, j]+"\t");
                 }
-                res = res + "Las suma de la fila " + (i + 1) + " " + sumaFil+"\n";
+                Console.WriteLine();
             }
-            res = res + "\n";
-            for (int j = 0; j < col; j++)
+            
+            int[] diagonalPrincipal = new int[matriz.GetLength(0)];
+            int[] diagonalSecundaria = new int[matriz.GetLength(0)];
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                sumaCol = 0;
-                for (int i = 0; i < fil; i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    sumaCol = sumaCol + matriz[i, j];
+                    if (i == j) {
+                        diagonalPrincipal[i] = matriz[i, j];
+                    }
+                    if ((i + j) == (matriz.GetLength(0) - 1)) {
+                        diagonalSecundaria[i] = matriz[i, j];
+                    }
                 }
-                res = res + "La suma de la columa " + (j + 1) + " " + sumaCol+"\n";
             }
-            MessageBox.Show(res);
+            Console.WriteLine();
+            int suma = 0;
+            foreach (int numero in diagonalPrincipal) {
+                Console.Write(numero+"\t");
+                suma = suma + numero;
+            }
+            Console.WriteLine("suma diagonal princiapal="+suma+"\n");
+            suma = 0;
+            foreach (int numero in diagonalSecundaria)
+            {
+                Console.Write(numero + "\t");
+                suma = suma + numero;
+            }
+            Console.WriteLine("suma diagonal secundaria=" + suma + "\n");
+            Console.Read();
         }
     }
 }
