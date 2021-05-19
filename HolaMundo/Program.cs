@@ -23,36 +23,29 @@ namespace HolaMundo
                     matriz[i, j] = int.Parse(Interaction.InputBox("Matriz["+(i+1)+","+(j+1)+"]"));
                 }
             }
-            bool esSimetrica = true;
-            if (fil == col)
+            int sumaFil = 0;
+            int sumaCol = 0;
+            string res = "";
+            for (int i = 0; i < fil; i++)
             {
+                sumaFil = 0;
+                for (int j = 0; j < col; j++)
+                {
+                    sumaFil = sumaFil + matriz[i, j];
+                }
+                res = res + "Las suma de la fila " + (i + 1) + " " + sumaFil+"\n";
+            }
+            res = res + "\n";
+            for (int j = 0; j < col; j++)
+            {
+                sumaCol = 0;
                 for (int i = 0; i < fil; i++)
                 {
-                    for (int j = 0; j < col; j++)
-                    {
-                        if (matriz[i, j] != matriz[j, i])
-                        {
-                            esSimetrica = false;
-                            break;
-                        }
-                    }
-                    if (esSimetrica == false)
-                    {
-                        break;
-                    }
+                    sumaCol = sumaCol + matriz[i, j];
                 }
-                if (esSimetrica == true)
-                {
-                    MessageBox.Show("Feliciades humano tu matriz si es simetrica");
-                }
-                else
-                {
-                    MessageBox.Show("humano estupido tu matriz no es simetrica");
-                }
+                res = res + "La suma de la columa " + (j + 1) + " " + sumaCol+"\n";
             }
-            else {
-                MessageBox.Show("Humano super estupido el umero de filas debe de ser igual al numero de columnas");
-            }
+            MessageBox.Show(res);
         }
     }
 }
