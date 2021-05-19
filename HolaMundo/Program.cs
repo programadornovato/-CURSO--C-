@@ -14,40 +14,59 @@ namespace HolaMundo
         static void Main(string[] args)
         {
             Auto vocho1 = new Auto();
-            vocho1.color = "Verde";
-            vocho1.modelo = 1980;
-            vocho1.marca = "Vocho";
-            Console.WriteLine(vocho1.color);
-            Console.WriteLine(vocho1.modelo);
-            Console.WriteLine(vocho1.marca);
-            vocho1.enciende();
-            vocho1.acelera();
-            vocho1.frena();
+            vocho1.meterLlave("123456");
+            vocho1.mando("enciende");
 
             Auto chevy = new Auto();
-            chevy.color = "azul";
-            chevy.modelo = 2010;
-            chevy.marca = "Chevrolet";
-            Console.WriteLine(chevy.color);
-            Console.WriteLine(chevy.modelo);
-            Console.WriteLine(chevy.marca);
-            chevy.enciende();
-            chevy.acelera();
-            chevy.frena();
+            chevy.meterLlave("123456");
+            chevy.mando("enciende");
+
             Console.Read();
         }
     }
     class Auto {
-        public string color = "";
-        public int modelo = 0;
-        public string marca = "";
-        public void enciende() {
+        private string color = "";
+        private int modelo = 0;
+        private string marca = "";
+        private bool acceso = false;
+        public void meterLlave(string llave) {
+            if (llave == "123456")
+            {
+                acceso = true;
+                Console.WriteLine("Se tien acceso al auto");
+            }
+            else {
+                acceso = false;
+                Console.WriteLine("Llave incorrecta");
+            }
+        }
+        public void mando(string accion) {
+            if (acceso == true) {
+                if (accion == "enciende")
+                {
+                    enciende();
+                }
+                if (accion == "acelera") {
+                    acelera();
+                }
+
+                if (accion == "frena") {
+                    frena();
+                }
+            }
+            else
+            {
+                Console.WriteLine("No tienes acceso al auto");
+            }
+
+        }
+        private void enciende() {
             Console.WriteLine("Se encendio el auto run run");
         }
-        public void acelera() {
+        private void acelera() {
             Console.WriteLine("El auto esta acelerando");
         }
-        public void frena() {
+        private void frena() {
             Console.WriteLine("El auto ha frenado");
         }
     }
