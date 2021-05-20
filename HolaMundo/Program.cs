@@ -13,17 +13,8 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            /*
-            Console.WriteLine();
-            Console.WriteLine("Hola");
-            Console.WriteLine(5);
-            Console.WriteLine(5.5);
-            Console.WriteLine(true);
-            */
-            Vehiculo v1 = new Vehiculo("Nissan", "2020");
-            v1.acelera();
-            Vehiculo v2 = new Vehiculo("65464");
-            v2.acelera(30);
+            //Basicas b1 = new Basicas(1,2);
+            Matematicas.Basicas b2 = new Matematicas.Basicas(2,3);
             Console.Read();
         }
     }
