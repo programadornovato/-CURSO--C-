@@ -13,11 +13,17 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Persona p1 = new Persona("juan", -1);
-            Persona p2 = new Persona("pepe", -2);
-            //p1.inicializar("juan",1);
-            p1.mostrar();
-            p2.mostrar();
+            /*
+            Console.WriteLine();
+            Console.WriteLine("Hola");
+            Console.WriteLine(5);
+            Console.WriteLine(5.5);
+            Console.WriteLine(true);
+            */
+            Vehiculo v1 = new Vehiculo("Nissan", "2020");
+            v1.acelera();
+            Vehiculo v2 = new Vehiculo("65464");
+            v2.acelera(30);
             Console.Read();
         }
     }
