@@ -13,13 +13,20 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Auto vocho1 = new Auto();
-            vocho1.meterLlave("123456");
-            vocho1.mando("enciende");
-
-            Auto chevy = new Auto();
-            chevy.meterLlave("123456");
-            chevy.mando("enciende");
+            int a = 1;
+            int b = 2;
+            int res = 0;
+            Calculadora c = new Calculadora();
+            res=c.suma(a,b);
+            Console.WriteLine("Suma="+ res);
+            res=c.resta(a,b);
+            Console.WriteLine("Resta=" + res);
+            res=c.multiplicacion(a,b);
+            Console.WriteLine("Multiplicacion=" + res);
+            double ad = 1;
+            double bd = 2;
+            double resD=c.divicion(ad,bd);
+            Console.WriteLine("Divicion=" + resD);
 
             Console.Read();
         }
