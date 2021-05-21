@@ -13,8 +13,14 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            //Basicas b1 = new Basicas(1,2);
-            Matematicas.Basicas b2 = new Matematicas.Basicas(2,3);
+            MiClase c1 = new MiClase();
+            MiClase c2 = new MiClase();
+            c1.normal = "c1 Atributo normal modificado";
+            c2.normal = "c2 Atributo normal modificado";
+            Console.WriteLine("c1.normal="+ c1.normal);
+            Console.WriteLine("c2.normal="+ c2.normal);
+            MiClase.estatico = "Atributo estatico modificado";
+            Console.WriteLine("MiClase.estatico="+ MiClase.estatico);
             Console.Read();
         }
     }
