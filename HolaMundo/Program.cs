@@ -13,14 +13,28 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            MiClase c1 = new MiClase();
-            MiClase c2 = new MiClase();
-            c1.normal = "c1 Atributo normal modificado";
-            c2.normal = "c2 Atributo normal modificado";
-            Console.WriteLine("c1.normal="+ c1.normal);
-            Console.WriteLine("c2.normal="+ c2.normal);
-            MiClase.estatico = "Atributo estatico modificado";
-            Console.WriteLine("MiClase.estatico="+ MiClase.estatico);
+            Cuadrilatero c;
+            Console.WriteLine("Humano que tipo de figura deseas calcular: \n1 Cuadrado \n2 Rectangulo");
+            int opcion = int.Parse(Console.ReadLine());
+            if (opcion == 1)
+            {
+                Console.WriteLine("Humano ingresa el valor del lado de tu cuadrado");
+                double lado = double.Parse(Console.ReadLine());
+                c = new Cuadrilatero(lado);
+            }
+            else if (opcion == 2)
+            {
+                Console.WriteLine("Humano ingresa el valor del lado 1 del rectangulo");
+                double lado1 = double.Parse(Console.ReadLine());
+                Console.WriteLine("Humano ingresa el valor del lado 2 del rectangulo");
+                double lado2 = double.Parse(Console.ReadLine());
+                c = new Cuadrilatero(lado1, lado2);
+            }
+            else {
+                Console.WriteLine("Humano estupido las opciones solo son 1 y 2");
+                c = new Cuadrilatero(0);
+            }
+            Console.WriteLine("Humano el perimetro es "+c.perimetro()+" el area es "+c.area());
             Console.Read();
         }
     }
