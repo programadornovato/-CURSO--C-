@@ -13,28 +13,33 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Cuadrilatero c;
-            Console.WriteLine("Humano que tipo de figura deseas calcular: \n1 Cuadrado \n2 Rectangulo");
-            int opcion = int.Parse(Console.ReadLine());
-            if (opcion == 1)
+            Console.WriteLine("Humano ingresa la cantidad de alumnos");
+            int cantidadAlumnos = int.Parse(Console.ReadLine());
+            Alumnos[] a = new Alumnos[cantidadAlumnos];
+            for (int i = 0; i < cantidadAlumnos; i++)
             {
-                Console.WriteLine("Humano ingresa el valor del lado de tu cuadrado");
-                double lado = double.Parse(Console.ReadLine());
-                c = new Cuadrilatero(lado);
+                Console.WriteLine("Humano ingresa el NOMBRE del alumno "+(i+1));
+                string nombre = Console.ReadLine();
+                Console.WriteLine("Humano ingresa la CALIFICACION del alumno "+(i+1));
+                double calificacion =double.Parse(Console.ReadLine());
+                Console.WriteLine("Humano ingresa el AULA del alumno "+(i+1));
+                char aula = Console.ReadLine()[0];
+                a[i] = new Alumnos(nombre,calificacion,aula);
             }
-            else if (opcion == 2)
+            double suma = 0;
+            double promedio = 0;
+            int cantidadAlumnosSalon = 0;
+            Console.WriteLine("Humano de que AULA quieres promediar las calificaciones");
+            char salon = Console.ReadLine()[0];
+            for (int i = 0; i < cantidadAlumnos; i++)
             {
-                Console.WriteLine("Humano ingresa el valor del lado 1 del rectangulo");
-                double lado1 = double.Parse(Console.ReadLine());
-                Console.WriteLine("Humano ingresa el valor del lado 2 del rectangulo");
-                double lado2 = double.Parse(Console.ReadLine());
-                c = new Cuadrilatero(lado1, lado2);
+                if (salon == a[i].getAula()) {
+                    suma = suma + a[i].getCalificacion();
+                    cantidadAlumnosSalon++;
+                }
             }
-            else {
-                Console.WriteLine("Humano estupido las opciones solo son 1 y 2");
-                c = new Cuadrilatero(0);
-            }
-            Console.WriteLine("Humano el perimetro es "+c.perimetro()+" el area es "+c.area());
+            promedio = suma / cantidadAlumnosSalon;
+            Console.WriteLine("El promedio de los alumnos del salon "+ salon+" es "+promedio);
             Console.Read();
         }
     }
