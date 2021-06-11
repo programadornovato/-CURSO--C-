@@ -13,22 +13,14 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Animal a = new Animal();
-            a.comer();
-            a.correr();
+            //Automotores a = new Automotores();
+            //Gasolina g = new Gasolina();
+            Autos a = new Autos();
+            a.llantas();
+            Camiones c = new Camiones();
+            c.llantas();
 
-            Humano h = new Humano();
-            h.comer();
-            h.correr();
 
-            Perro p = new Perro();
-            p.correr();
-            p.comer();
-
-            Pajaro pa = new Pajaro();
-            pa.comer();
-            pa.volar();
-            pa.correr();
             Console.Read();
         }
     }
