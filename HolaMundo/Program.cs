@@ -13,10 +13,22 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Personas p = new Personas("Juan","Perez",30);
-            Console.WriteLine("Nombre="+p.getNombre()+" Apellido="+p.getApellido()+" Edad="+p.getEdad());
-            Estudiantes e = new Estudiantes("Pepe", "Morales", 20, "cod_PPM", 10,'c');
-            Console.WriteLine("Nombre=" + e.getNombre() + " Apellido=" + e.getApellido() + " Edad=" + e.getEdad()+" Codigo Estudiante="+e.getCodigoEstudiante()+" calificacion="+e.getCalificacion()+" Salon="+e.getSalon());
+            Animal a = new Animal();
+            a.comer();
+            a.correr();
+
+            Humano h = new Humano();
+            h.comer();
+            h.correr();
+
+            Perro p = new Perro();
+            p.correr();
+            p.comer();
+
+            Pajaro pa = new Pajaro();
+            pa.comer();
+            pa.volar();
+            pa.correr();
             Console.Read();
         }
     }
