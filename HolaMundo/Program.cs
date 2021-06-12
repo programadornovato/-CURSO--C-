@@ -14,40 +14,16 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            //listaNormal();
-            listaDinamica();
+            Carro[] c = new Carro[4];
+            c[0] = new Carro("CARRO01","Nissan","2010");
+            c[1] = new tipoDeportivo("DEPORT01","Nissan","2012",8);
+            c[2] = new TipoTurismo("TUR01","Nissan","2015",4);
+            c[3] = new tipoFurgoneta("FUR01","Nissan","2018",500);
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine(c[i].retornarDatos());
+            }
             Console.Read();
-        }
-        public static void listaNormal() {
-            Console.WriteLine("Humano inresa la cantidad de elementos de tu lista");
-            int cantidad = int.Parse(Console.ReadLine());
-            string[] lista = new string[cantidad];
-            for (int i = 0; i < cantidad; i++)
-            {
-                Console.WriteLine("Humano ingresa elelemento "+(i+1));
-                lista[i] = Console.ReadLine();
-            }
-            Console.WriteLine("Humano aqui esta tu lista");
-            for (int i = 0; i < cantidad; i++)
-            {
-                Console.WriteLine(lista[i]);
-            }
-        }
-        public static void listaDinamica() {
-            ArrayList lista=new ArrayList();
-            char respuesta;
-            int i = 0;
-            do
-            {
-                Console.WriteLine("Humano ingresa el valor "+(i+1));
-                lista.Add(Console.ReadLine());
-                Console.WriteLine("Humano quieres ingresar mas elementos a la lista s/n");
-                respuesta = Console.ReadLine()[0];
-            } while (respuesta == 's' || respuesta == 'S');
-            foreach (var item in lista)
-            {
-                Console.WriteLine(item);
-            }
         }
     }
 }
